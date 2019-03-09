@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class SpringBootElasticsearchApplicationTests {
     public void contextLoads() {
         List<Hotel> hotels = hotelRepository.findByCity("seoul");
 
-        System.out.println();
+        Assert.notEmpty(hotels, "Document Empty");
     }
 
 }
